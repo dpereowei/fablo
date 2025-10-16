@@ -8,7 +8,7 @@ function getDefaultFabloConfig(): FabloConfigJson {
     $schema: `https://github.com/hyperledger-labs/fablo/releases/download/${version}/schema.json`,
     global: {
       fabricVersion: "2.5.12",
-      tls: false,
+      tls: true,
       peerDevMode: false,
     },
     orgs: [
@@ -64,9 +64,9 @@ function getDefaultFabloConfig(): FabloConfigJson {
       {
         name: "chaincode1",
         version: "0.0.1",
-        lang: "node",
+        lang: "ccaas",
         channel: "my-channel1",
-        directory: "./chaincodes/chaincode-kv-node",
+        image: "ghcr.io/fablo-io/fablo-sample-kv-node-chaincode:2.2.0",
         privateData: [],
       },
     ],

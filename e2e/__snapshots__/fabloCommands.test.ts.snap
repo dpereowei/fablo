@@ -2494,7 +2494,7 @@ Validation warnings count: 0
 {
   "global": {
     "fabricVersion": "2.5.12",
-    "tls": false,
+    "tls": true,
     "peerDevMode": false,
     "engine": "docker",
     "fabricToolsVersion": "2.5.12",
@@ -2988,7 +2988,7 @@ exports[`init should init simple fablo config 1`] = `
   "$schema": "https://github.com/hyperledger-labs/fablo/releases/download/2.3.0/schema.json",
   "global": {
     "fabricVersion": "2.5.12",
-    "tls": false,
+    "tls": true,
     "peerDevMode": false,
     "engine": "docker"
   },
@@ -3056,7 +3056,7 @@ exports[`init should init simple fablo config with node chaincode 1`] = `
   "$schema": "https://github.com/hyperledger-labs/fablo/releases/download/2.3.0/schema.json",
   "global": {
     "fabricVersion": "2.5.12",
-    "tls": false,
+    "tls": true,
     "peerDevMode": false,
     "engine": "docker"
   },
@@ -3118,9 +3118,9 @@ exports[`init should init simple fablo config with node chaincode 1`] = `
     {
       "name": "chaincode1",
       "version": "0.0.1",
-      "lang": "node",
+      "lang": "ccaas",
       "channel": "my-channel1",
-      "directory": "./chaincodes/chaincode-kv-node",
+      "image": "ghcr.io/fablo-io/fablo-sample-kv-node-chaincode:2.2.0",
       "privateData": []
     }
   ],
@@ -3133,7 +3133,7 @@ exports[`init should init simple fablo config with node chaincode and rest api 1
   "$schema": "https://github.com/hyperledger-labs/fablo/releases/download/2.3.0/schema.json",
   "global": {
     "fabricVersion": "2.5.12",
-    "tls": false,
+    "tls": true,
     "peerDevMode": false,
     "engine": "docker"
   },
@@ -3199,9 +3199,9 @@ exports[`init should init simple fablo config with node chaincode and rest api 1
     {
       "name": "chaincode1",
       "version": "0.0.1",
-      "lang": "node",
+      "lang": "ccaas",
       "channel": "my-channel1",
-      "directory": "./chaincodes/chaincode-kv-node",
+      "image": "ghcr.io/fablo-io/fablo-sample-kv-node-chaincode:2.2.0",
       "privateData": []
     }
   ],
