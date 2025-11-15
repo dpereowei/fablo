@@ -327,6 +327,27 @@ services:
       - basic
   <%_ } _%>
   <%_ }) _%>
+  
+  <%_ chaincodes.forEach(function(chaincode) { if (chaincode.lang === 'ccaas' || chaincode.image) { %>
+  <% chaincode.peerChaincodeInstances.forEach(function(instance) { %>
+  <%= instance.containerName %>:
+    container_name: <%= instance.containerName %>
+    image: <%= chaincode.image %>
+    pull_policy: always
+    restart: always
+    environment:
+      - CORE_PEER_ID=<%= instance.containerName %>
+      - CORE_PEER_ADDRESS=<%= instance.address %>
+      - CORE_PEER_LOCALMSPID=<%= org.mspId %>
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/peer/msp
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer/tls/ca.crt
+    networks:
+      - basic
+  <% }) %>
+  <% } }) %>
 <%_ }) _%>
 
   <%_ if (global.tools.explorer) { _%>
